@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+
+# Vireo build output — generated from the .dac source in dac/, never hand-edited
+*.figma.json
+preview.html
+*.render.html
+dist/

@@ -1,0 +1,47 @@
+block Primary {
+    component Default {
+        height: 44
+        padding: 0 22
+        color: #326CE5
+        radius: 8
+
+        component Label {
+            text: "Button"
+            fontSize: 14
+            fontWeight: bold
+            color: #FFFFFF
+        }
+    }
+}
+
+block Ghost {
+    component Default {
+        height: 44
+        padding: 0 22
+        border: 1 #2A3B5C
+        radius: 8
+
+        component Label {
+            text: "Button"
+            fontSize: 14
+            fontWeight: bold
+            color: #E7ECF5
+        }
+    }
+}
+
+block Outline {
+    component Default {
+        height: 40
+        padding: 0 18
+        border: 1 #2A3B5C
+        radius: 8
+
+        component Label {
+            text: "Button"
+            fontSize: 13
+            fontWeight: bold
+            color: #8FA8D9
+        }
+    }
+}

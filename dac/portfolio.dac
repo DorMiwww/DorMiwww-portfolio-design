@@ -1,0 +1,1051 @@
+import buttons from "./components/buttons.dac"
+import badges  from "./components/badges.dac"
+import nav     from "./components/nav.dac"
+
+var pageBg = #0B1220
+var surface = #101A2E
+var surfaceAlt = #0D1626
+var borderColor = #1E293F
+var borderStrong = #2A3B5C
+var brand = #326CE5
+var textPrimary = #E7ECF5
+var textMuted = #8A94A6
+var textFaint = #5B6472
+
+fun spacing(multiplier: Int): Int {
+    return 8 * multiplier
+}
+
+block Portfolio {
+    component Page {
+        width: 1160
+        color: $pageBg
+        layout: vertical
+
+        component NavBar {
+            width: fill
+            padding: 20 40
+            color: $surfaceAlt
+            shadow: true
+            layout: horizontal
+            justifyContent: "space-between"
+            alignItems: center
+
+            component Brand {
+                layout: horizontal
+                gap: 12
+                alignItems: center
+
+                component LogoMark {
+                    width: 40
+                    height: 40
+                    radius: 10
+                    color: $brand
+
+                    component LogoChar {
+                        text: "M"
+                        fontSize: 18
+                        fontWeight: bold
+                        color: #FFFFFF
+                    }
+                }
+
+                component BrandText {
+                    layout: vertical
+                    gap: 2
+
+                    component BrandName {
+                        text: "Mykhailo Doronin"
+                        fontSize: 15
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+
+                    component BrandRole {
+                        text: "DevOps Engineer"
+                        fontSize: 12
+                        color: $textMuted
+                    }
+                }
+            }
+
+            component NavLinks {
+                layout: horizontal
+                gap: 28
+                alignItems: center
+
+                component AboutLink {
+                    ref: nav.Link.Item
+                    label: "About"
+                }
+
+                component SkillsLink {
+                    ref: nav.Link.Item
+                    label: "Skills"
+                }
+
+                component ProjectsLink {
+                    ref: nav.Link.Item
+                    label: "Projects"
+                }
+
+                component ContactLink {
+                    ref: nav.Link.Item
+                    label: "Contact"
+                }
+            }
+
+            component NavCta {
+                ref: buttons.Outline.Default
+                label: "GitHub"
+                href: "https://github.com/DorMiwww"
+            }
+        }
+
+        component Hero {
+            width: fill
+            padding: 120 40
+            color: $pageBg
+            layout: horizontal
+            gap: 48
+            alignItems: center
+            justifyContent: "space-between"
+
+            component HeroContent {
+                width: fill
+                layout: vertical
+                gap: 24
+
+                component HeroBadge {
+                    ref: badges.Status.Pill
+                    label: "Based in Ukraine — open to remote roles"
+                }
+
+                component HeroTitle {
+                    text: "Mykhailo Doronin"
+                    fontSize: 52
+                    fontWeight: bold
+                    color: $textPrimary
+                }
+
+                component HeroRole {
+                    text: "DevOps Engineer"
+                    fontSize: 20
+                    fontWeight: bold
+                    color: $brand
+                }
+
+                component HeroTagline {
+                    text: "I steer clusters instead of ships — same wheel, different kind of helm."
+                    fontSize: 18
+                    color: $textMuted
+                }
+
+                component HeroDescription {
+                    width: 620
+                    text: "I keep Docker and Kubernetes clusters, Terraform-provisioned infrastructure, and GitOps pipelines running quietly in the background, so the people shipping features never have to think about the plumbing underneath."
+                    fontSize: 16
+                    color: $textMuted
+                }
+
+                component HeroCtas {
+                    layout: horizontal
+                    gap: 16
+
+                    component EmailCta {
+                        ref: buttons.Primary.Default
+                        label: "Get in Touch"
+                        href: "mailto:doroninmykhailo@gmail.com"
+                    }
+
+                    component GithubCta {
+                        ref: buttons.Ghost.Default
+                        label: "View on GitHub"
+                        href: "https://github.com/DorMiwww"
+                    }
+                }
+            }
+
+            component HeroVisual {
+                image: "assets/wheel.svg"
+                alt: "A ship's helm wheel — the same wheel Kubernetes borrowed for its logo"
+                width: 240
+                height: 240
+                fit: contain
+            }
+        }
+
+        component Activity {
+            width: fill
+            padding: 48 40
+            color: $surfaceAlt
+            layout: vertical
+            gap: 16
+            alignItems: center
+
+            component ActivityLabel {
+                text: "GITHUB ACTIVITY"
+                fontSize: 13
+                fontWeight: bold
+                color: $brand
+            }
+
+            component ActivitySnake {
+                image: "https://raw.githubusercontent.com/DorMiwww/DorMiwww/output/github-contribution-grid-snake-dark.svg"
+                alt: "My real GitHub contribution graph, played back as a snake game"
+                width: 900
+                fit: contain
+            }
+        }
+
+        component About {
+            width: fill
+            padding: 96 40
+            color: $surfaceAlt
+            layout: vertical
+            gap: 32
+
+            component AboutLabel {
+                text: "ABOUT"
+                fontSize: 13
+                fontWeight: bold
+                color: $brand
+            }
+
+            component AboutHeading {
+                width: 700
+                text: "Infrastructure, quietly running in the background"
+                fontSize: 32
+                fontWeight: bold
+                color: $textPrimary
+            }
+
+            component AboutBody {
+                width: 720
+                layout: vertical
+                gap: 16
+
+                component AboutP1 {
+                    text: "Day to day I work with Docker and Kubernetes, provision infrastructure with Terraform, and ship changes through GitOps with ArgoCD. I build and maintain CI/CD pipelines with GitHub Actions, GitLab CI and Jenkins, across both AWS and on-prem, bare-metal environments."
+                    fontSize: 16
+                    color: $textMuted
+                }
+
+                component AboutP2 {
+                    text: "I keep an eye on production with Prometheus, Grafana and the ELK / Loki logging stack. My backend roots are in Java, Kotlin and Python — handy when I need to read the code that's actually running on top of the infrastructure I maintain."
+                    fontSize: 16
+                    color: $textMuted
+                }
+            }
+
+            component QuickFacts {
+                width: fill
+                layout: horizontal
+                gap: 16
+
+                component FactLocation {
+                    width: fill
+                    padding: 20
+                    radius: 12
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 6
+
+                    component FactLocationLabel {
+                        text: "LOCATION"
+                        fontSize: 11
+                        fontWeight: bold
+                        color: $textFaint
+                    }
+
+                    component FactLocationValue {
+                        text: "Ukraine"
+                        fontSize: 16
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+                }
+
+                component FactFocus {
+                    width: fill
+                    padding: 20
+                    radius: 12
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 6
+
+                    component FactFocusLabel {
+                        text: "FOCUS"
+                        fontSize: 11
+                        fontWeight: bold
+                        color: $textFaint
+                    }
+
+                    component FactFocusValue {
+                        text: "Kubernetes & CI/CD"
+                        fontSize: 16
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+                }
+
+                component FactRoots {
+                    width: fill
+                    padding: 20
+                    radius: 12
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 6
+
+                    component FactRootsLabel {
+                        text: "BACKEND ROOTS"
+                        fontSize: 11
+                        fontWeight: bold
+                        color: $textFaint
+                    }
+
+                    component FactRootsValue {
+                        text: "Kotlin, Java, Python"
+                        fontSize: 16
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+                }
+
+                component FactSince {
+                    width: fill
+                    padding: 20
+                    radius: 12
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 6
+
+                    component FactSinceLabel {
+                        text: "ON GITHUB SINCE"
+                        fontSize: 11
+                        fontWeight: bold
+                        color: $textFaint
+                    }
+
+                    component FactSinceValue {
+                        text: "2024"
+                        fontSize: 16
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+                }
+            }
+        }
+
+        component Skills {
+            width: fill
+            padding: 96 40
+            color: $pageBg
+            layout: vertical
+            gap: 32
+
+            component SkillsLabel {
+                text: "SKILLS"
+                fontSize: 13
+                fontWeight: bold
+                color: $brand
+            }
+
+            component SkillsHeading {
+                text: "Tools I reach for"
+                fontSize: 32
+                fontWeight: bold
+                color: $textPrimary
+            }
+
+            component SkillsRow1 {
+                width: fill
+                layout: horizontal
+                gap: 20
+
+                component CardOrchestration {
+                    width: fill
+                    padding: 24
+                    radius: 16
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 16
+                    alignItems: "flex-start"
+
+                    component CardOrchestrationTitle {
+                        text: "Containers & Orchestration"
+                        fontSize: 15
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+
+                    component CardOrchestrationIcons {
+                        image: "https://skillicons.dev/icons?i=docker,kubernetes,terraform,vault"
+                        alt: "Docker, Kubernetes, Terraform and Vault icons"
+                        height: 32
+                    }
+
+                    component CardOrchestrationRow1 {
+                        layout: horizontal
+                        gap: 8
+
+                        component SkillDocker {
+                            ref: badges.Skill.Pill
+                            label: "Docker"
+                        }
+
+                        component SkillKubernetes {
+                            ref: badges.Skill.Pill
+                            label: "Kubernetes"
+                        }
+                    }
+
+                    component CardOrchestrationRow2 {
+                        layout: horizontal
+                        gap: 8
+
+                        component SkillTerraform {
+                            ref: badges.Skill.Pill
+                            label: "Terraform"
+                        }
+
+                        component SkillVault {
+                            ref: badges.Skill.Pill
+                            label: "Vault"
+                        }
+                    }
+                }
+
+                component CardCloud {
+                    width: fill
+                    padding: 24
+                    radius: 16
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 16
+                    alignItems: "flex-start"
+
+                    component CardCloudTitle {
+                        text: "Cloud & Infrastructure"
+                        fontSize: 15
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+
+                    component CardCloudIcons {
+                        image: "https://skillicons.dev/icons?i=aws,linux,bash,nginx,haproxy,git"
+                        alt: "AWS, Linux, Bash, Nginx, HAProxy and Git icons"
+                        height: 32
+                    }
+
+                    component CardCloudRow1 {
+                        layout: horizontal
+                        gap: 8
+
+                        component SkillAws {
+                            ref: badges.Skill.Pill
+                            label: "AWS"
+                        }
+
+                        component SkillLinux {
+                            ref: badges.Skill.Pill
+                            label: "Linux"
+                        }
+
+                        component SkillBash {
+                            ref: badges.Skill.Pill
+                            label: "Bash"
+                        }
+                    }
+
+                    component CardCloudRow2 {
+                        layout: horizontal
+                        gap: 8
+
+                        component SkillNginx {
+                            ref: badges.Skill.Pill
+                            label: "Nginx"
+                        }
+
+                        component SkillHaproxy {
+                            ref: badges.Skill.Pill
+                            label: "HAProxy"
+                        }
+
+                        component SkillGit {
+                            ref: badges.Skill.Pill
+                            label: "Git"
+                        }
+                    }
+                }
+
+                component CardCicd {
+                    width: fill
+                    padding: 24
+                    radius: 16
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 16
+                    alignItems: "flex-start"
+
+                    component CardCicdTitle {
+                        text: "CI/CD"
+                        fontSize: 15
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+
+                    component CardCicdIcons {
+                        image: "https://skillicons.dev/icons?i=githubactions,argocd,gitlab,jenkins"
+                        alt: "GitHub Actions, ArgoCD, GitLab CI and Jenkins icons"
+                        height: 32
+                    }
+
+                    component CardCicdRow1 {
+                        layout: horizontal
+                        gap: 8
+
+                        component SkillGha {
+                            ref: badges.Skill.Pill
+                            label: "GitHub Actions"
+                        }
+
+                        component SkillArgoCd {
+                            ref: badges.Skill.Pill
+                            label: "ArgoCD"
+                        }
+                    }
+
+                    component CardCicdRow2 {
+                        layout: horizontal
+                        gap: 8
+
+                        component SkillGitlab {
+                            ref: badges.Skill.Pill
+                            label: "GitLab CI"
+                        }
+
+                        component SkillJenkins {
+                            ref: badges.Skill.Pill
+                            label: "Jenkins"
+                        }
+                    }
+                }
+            }
+
+            component SkillsRow2 {
+                width: fill
+                layout: horizontal
+                gap: 20
+
+                component CardObservability {
+                    width: 460
+                    padding: 24
+                    radius: 16
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 16
+                    alignItems: "flex-start"
+
+                    component CardObservabilityTitle {
+                        text: "Observability"
+                        fontSize: 15
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+
+                    component CardObservabilityIcons {
+                        image: "https://skillicons.dev/icons?i=prometheus,grafana,elasticsearch,kibana,loki"
+                        alt: "Prometheus, Grafana, Elasticsearch, Kibana and Loki icons"
+                        height: 32
+                    }
+
+                    component CardObservabilityRow1 {
+                        layout: horizontal
+                        gap: 8
+
+                        component SkillPrometheus {
+                            ref: badges.Skill.Pill
+                            label: "Prometheus"
+                        }
+
+                        component SkillGrafana {
+                            ref: badges.Skill.Pill
+                            label: "Grafana"
+                        }
+
+                        component SkillTempo {
+                            ref: badges.Skill.Pill
+                            label: "Grafana Tempo"
+                        }
+                    }
+
+                    component CardObservabilityRow2 {
+                        layout: horizontal
+                        gap: 8
+
+                        component SkillElk {
+                            ref: badges.Skill.Pill
+                            label: "Elasticsearch"
+                        }
+
+                        component SkillKibana {
+                            ref: badges.Skill.Pill
+                            label: "Kibana"
+                        }
+
+                        component SkillLoki {
+                            ref: badges.Skill.Pill
+                            label: "Loki"
+                        }
+                    }
+                }
+
+                component CardLanguages {
+                    width: fill
+                    padding: 24
+                    radius: 16
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 16
+                    alignItems: "flex-start"
+
+                    component CardLanguagesTitle {
+                        text: "Languages & Data"
+                        fontSize: 15
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+
+                    component CardLanguagesIcons {
+                        image: "https://skillicons.dev/icons?i=kotlin,java,python,postgres,redis,kafka,rabbitmq"
+                        alt: "Kotlin, Java, Python, PostgreSQL, Redis, Kafka and RabbitMQ icons"
+                        height: 32
+                    }
+
+                    component CardLanguagesRow1 {
+                        layout: horizontal
+                        gap: 8
+
+                        component SkillKotlin {
+                            ref: badges.Skill.Pill
+                            label: "Kotlin"
+                        }
+
+                        component SkillJava {
+                            ref: badges.Skill.Pill
+                            label: "Java"
+                        }
+
+                        component SkillPython {
+                            ref: badges.Skill.Pill
+                            label: "Python"
+                        }
+
+                        component SkillPostgres {
+                            ref: badges.Skill.Pill
+                            label: "PostgreSQL"
+                        }
+
+                        component SkillRedis {
+                            ref: badges.Skill.Pill
+                            label: "Redis"
+                        }
+
+                        component SkillKafka {
+                            ref: badges.Skill.Pill
+                            label: "Kafka"
+                        }
+                    }
+
+                    component CardLanguagesRow2 {
+                        layout: horizontal
+                        gap: 8
+
+                        component SkillRabbitmq {
+                            ref: badges.Skill.Pill
+                            label: "RabbitMQ"
+                        }
+
+                        component SkillKmp {
+                            ref: badges.Skill.Pill
+                            label: "Kotlin Multiplatform"
+                        }
+
+                        component SkillCompose {
+                            ref: badges.Skill.Pill
+                            label: "Jetpack Compose"
+                        }
+                    }
+                }
+            }
+        }
+
+        component Projects {
+            width: fill
+            padding: 96 40
+            color: $surfaceAlt
+            layout: vertical
+            gap: 32
+
+            component ProjectsLabel {
+                text: "PROJECTS"
+                fontSize: 13
+                fontWeight: bold
+                color: $brand
+            }
+
+            component ProjectsHeading {
+                text: "Things I've built"
+                fontSize: 32
+                fontWeight: bold
+                color: $textPrimary
+            }
+
+            component FeaturedProject {
+                width: fill
+                padding: 32
+                radius: 16
+                color: $surface
+                border: 1 #2A3B5C
+                shadow: true
+                layout: vertical
+                gap: 16
+
+                component FeaturedTop {
+                    width: fill
+                    layout: horizontal
+                    justifyContent: "space-between"
+                    alignItems: center
+
+                    component FeaturedTitleGroup {
+                        layout: vertical
+                        gap: 8
+
+                        component FeaturedTag {
+                            ref: badges.Tag.Pill
+                            label: "FLAGSHIP PROJECT"
+                        }
+
+                        component FeaturedTitle {
+                            text: "Vireo"
+                            fontSize: 24
+                            fontWeight: bold
+                            color: $textPrimary
+                        }
+                    }
+
+                    component FeaturedLink {
+                        ref: buttons.Outline.Default
+                        label: "View on GitHub"
+                        href: "https://github.com/DorMiwww/Vireo"
+                    }
+                }
+
+                component FeaturedScreenshot {
+                    image: "assets/vireo-preview.png"
+                    alt: "Real Vireo dashboard.dac design, rendered to HTML by this compiler"
+                    width: fill
+                    height: 320
+                    radius: 12
+                    fit: cover
+                }
+
+                component FeaturedDesc {
+                    width: 760
+                    text: "A Design-as-Code compiler I'm building from scratch in Kotlin. It parses a custom .dac language and compiles UI designs straight into JSON, HTML and Figma — this very site was designed and rendered with it."
+                    fontSize: 15
+                    color: $textMuted
+                }
+
+                component FeaturedTechRow {
+                    layout: horizontal
+                    gap: 8
+
+                    component TechKotlin {
+                        ref: badges.Skill.Pill
+                        label: "Kotlin"
+                    }
+
+                    component TechCompiler {
+                        ref: badges.Skill.Pill
+                        label: "Compiler Design"
+                    }
+
+                    component TechCli {
+                        ref: badges.Skill.Pill
+                        label: "CLI Tooling"
+                    }
+
+                    component TechFigma {
+                        ref: badges.Skill.Pill
+                        label: "Figma API"
+                    }
+                }
+            }
+
+            component ProjectGrid {
+                width: fill
+                layout: horizontal
+                gap: 20
+
+                component ProjCardInfra {
+                    width: fill
+                    padding: 24
+                    radius: 16
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 12
+
+                    component ProjCardInfraTag {
+                        ref: badges.Tag.Pill
+                        label: "PET PROJECT"
+                    }
+
+                    component ProjCardInfraTitle {
+                        text: "Infra Hackathon"
+                        fontSize: 16
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+
+                    component ProjCardInfraDesc {
+                        text: "Infrastructure tooling built during a hackathon sprint — provisioning and automation experiments under a tight deadline."
+                        fontSize: 14
+                        color: $textMuted
+                    }
+
+                    component ProjCardInfraTech {
+                        layout: horizontal
+                        gap: 8
+
+                        component ProjCardInfraTechGo {
+                            ref: badges.Skill.Pill
+                            label: "Go"
+                        }
+                    }
+
+                    component ProjCardInfraLink {
+                        ref: buttons.Outline.Default
+                        label: "Source"
+                        href: "https://github.com/DorMiwww/Infra-hackaton"
+                    }
+                }
+
+                component ProjCardLighter {
+                    width: fill
+                    padding: 24
+                    radius: 16
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 12
+
+                    component ProjCardLighterTag {
+                        ref: badges.Tag.Pill
+                        label: "PET PROJECT"
+                    }
+
+                    component ProjCardLighterTitle {
+                        text: "Lighter"
+                        fontSize: 16
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+
+                    component ProjCardLighterDesc {
+                        text: "A Kotlin mobile app paired with its own backend service — one of several full-stack Kotlin side projects."
+                        fontSize: 14
+                        color: $textMuted
+                    }
+
+                    component ProjCardLighterTech {
+                        layout: horizontal
+                        gap: 8
+
+                        component ProjCardLighterTechKotlin {
+                            ref: badges.Skill.Pill
+                            label: "Kotlin"
+                        }
+
+                        component ProjCardLighterTechAndroid {
+                            ref: badges.Skill.Pill
+                            label: "Android"
+                        }
+                    }
+
+                    component ProjCardLighterLink {
+                        ref: buttons.Outline.Default
+                        label: "Source"
+                        href: "https://github.com/DorMiwww/lighter-app"
+                    }
+                }
+
+                component ProjCardTemplate {
+                    width: fill
+                    padding: 24
+                    radius: 16
+                    color: $surface
+                    border: 1 #1E293F
+                    layout: vertical
+                    gap: 12
+
+                    component ProjCardTemplateTag {
+                        ref: badges.Tag.Pill
+                        label: "PET PROJECT"
+                    }
+
+                    component ProjCardTemplateTitle {
+                        text: "Kotlin Backend Template"
+                        fontSize: 16
+                        fontWeight: bold
+                        color: $textPrimary
+                    }
+
+                    component ProjCardTemplateDesc {
+                        text: "A reusable Kotlin backend starter I use to skip the boilerplate when spinning up a new service."
+                        fontSize: 14
+                        color: $textMuted
+                    }
+
+                    component ProjCardTemplateTech {
+                        layout: horizontal
+                        gap: 8
+
+                        component ProjCardTemplateTechKotlin {
+                            ref: badges.Skill.Pill
+                            label: "Kotlin"
+                        }
+
+                        component ProjCardTemplateTechBackend {
+                            ref: badges.Skill.Pill
+                            label: "Backend"
+                        }
+                    }
+
+                    component ProjCardTemplateLink {
+                        ref: buttons.Outline.Default
+                        label: "Source"
+                        href: "https://github.com/DorMiwww/Backend-kotlin-back-template"
+                    }
+                }
+            }
+        }
+
+        component Contact {
+            width: fill
+            padding: 96 40
+            color: $pageBg
+            layout: vertical
+            gap: 24
+            alignItems: center
+
+            component ContactLabel {
+                text: "CONTACT"
+                fontSize: 13
+                fontWeight: bold
+                color: $brand
+            }
+
+            component ContactHeading {
+                text: "Let's talk infrastructure"
+                fontSize: 32
+                fontWeight: bold
+                color: $textPrimary
+            }
+
+            component ContactBody {
+                width: 620
+                text: "Whether it's a Kubernetes migration, a CI/CD pipeline that keeps breaking, or a design tool built the same way we build infrastructure — I'm happy to talk shop."
+                fontSize: 16
+                color: $textMuted
+            }
+
+            component ContactLinks {
+                layout: horizontal
+                gap: 12
+
+                component EmailBtn {
+                    ref: buttons.Primary.Default
+                    label: "Email Me"
+                    href: "mailto:doroninmykhailo@gmail.com"
+                }
+
+                component GithubBtn {
+                    ref: buttons.Outline.Default
+                    label: "GitHub"
+                    href: "https://github.com/DorMiwww"
+                }
+
+                component LinkedinBtn {
+                    ref: buttons.Outline.Default
+                    label: "LinkedIn"
+                    href: "https://www.linkedin.com/in/mykhailo-doronin-6b6832322"
+                }
+
+                component DevtoBtn {
+                    ref: buttons.Outline.Default
+                    label: "dev.to"
+                    href: "https://dev.to/dormiwww"
+                }
+
+                component SoBtn {
+                    ref: buttons.Outline.Default
+                    label: "Stack Overflow"
+                    href: "https://stackoverflow.com/users/28794903"
+                }
+            }
+        }
+
+        component Footer {
+            width: fill
+            padding: 24 40
+            color: $surfaceAlt
+            layout: horizontal
+            justifyContent: "space-between"
+            alignItems: center
+
+            component Copyright {
+                layout: horizontal
+                gap: 4
+                alignItems: center
+
+                component CopyrightPre {
+                    text: "© 2026 Mykhailo Doronin — built with"
+                    fontSize: 13
+                    color: $textFaint
+                }
+
+                component CopyrightLink {
+                    text: "Vireo"
+                    fontSize: 13
+                    fontWeight: bold
+                    color: $brand
+                    href: "https://github.com/DorMiwww/Vireo"
+                }
+
+                component CopyrightPost {
+                    text: "(Design as Code)."
+                    fontSize: 13
+                    color: $textFaint
+                }
+            }
+
+            component FooterLocation {
+                text: "Ukraine"
+                fontSize: 13
+                color: $textFaint
+            }
+        }
+    }
+}

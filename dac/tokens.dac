@@ -1,0 +1,55 @@
+var pageBg = #0B1220
+var surface = #101A2E
+var surfaceAlt = #0D1626
+var borderColor = #1E293F
+var borderStrong = #2A3B5C
+var brand = #326CE5
+var brandDark = #1B4F9C
+var textPrimary = #E7ECF5
+var textMuted = #8A94A6
+var textFaint = #5B6472
+var success = #34D399
+var successBg = #0F2A1E
+var successBorder = #1E4A34
+
+fun spacing(multiplier: Int): Int {
+    return 8 * multiplier
+}
+
+block Tokens {
+    component Palette {
+        layout: horizontal
+        gap: 12
+        padding: 24
+        color: $pageBg
+
+        component BrandSwatch {
+            width: 64
+            height: 64
+            radius: 12
+            color: $brand
+        }
+
+        component BrandDarkSwatch {
+            width: 64
+            height: 64
+            radius: 12
+            color: $brandDark
+        }
+
+        component SurfaceSwatch {
+            width: 64
+            height: 64
+            radius: 12
+            color: $surface
+            border: 1 $borderColor
+        }
+
+        component SuccessSwatch {
+            width: 64
+            height: 64
+            radius: 12
+            color: $success
+        }
+    }
+}

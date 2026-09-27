@@ -1,0 +1,69 @@
+name: Deploy portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "dac/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21 (Vireo is a pure-JVM tool)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Install Vireo CLI
+        run: curl -fsSL https://raw.githubusercontent.com/DorMiwww/Vireo/main/install.sh | bash
+
+      - name: Add Vireo to PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Print Vireo version
+        run: vireo --version
+
+      - name: Validate the .dac source
+        run: vireo check dac/portfolio.dac
+
+      - name: Render the portfolio to a self-contained index.html
+        run: |
+          mkdir -p dist
+          vireo render dac/portfolio.dac \
+            -o html \
+            --theme dark \
+            --title "Mykhailo Doronin — DevOps Engineer" \
+            --embed-assets \
+            -o dist/index.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

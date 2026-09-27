@@ -1,0 +1,12 @@
+block Link {
+    component Item {
+        padding: 8 6
+
+        component Label {
+            text: "Link"
+            fontSize: 14
+            fontWeight: medium
+            color: #A9B4C4
+        }
+    }
+}
