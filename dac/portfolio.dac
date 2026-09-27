@@ -385,7 +385,7 @@ block Portfolio {
                     }
 
                     component CardOrchestrationIcons {
-                        image: "https://skillicons.dev/icons?i=docker,kubernetes,terraform,vault"
+                        image: "assets/icons-orchestration.svg"
                         alt: "Docker, Kubernetes, Terraform and Vault icons"
                         height: 32
                     }
@@ -439,7 +439,7 @@ block Portfolio {
                     }
 
                     component CardCloudIcons {
-                        image: "https://skillicons.dev/icons?i=aws,linux,bash,nginx,haproxy,git"
+                        image: "assets/icons-cloud.svg"
                         alt: "AWS, Linux, Bash, Nginx, HAProxy and Git icons"
                         height: 32
                     }
@@ -503,7 +503,7 @@ block Portfolio {
                     }
 
                     component CardCicdIcons {
-                        image: "https://skillicons.dev/icons?i=githubactions,argocd,gitlab,jenkins"
+                        image: "assets/icons-cicd.svg"
                         alt: "GitHub Actions, ArgoCD, GitLab CI and Jenkins icons"
                         height: 32
                     }
@@ -563,7 +563,7 @@ block Portfolio {
                     }
 
                     component CardObservabilityIcons {
-                        image: "https://skillicons.dev/icons?i=prometheus,grafana,elasticsearch,kibana,loki"
+                        image: "assets/icons-observability.svg"
                         alt: "Prometheus, Grafana, Elasticsearch, Kibana and Loki icons"
                         height: 32
                     }
@@ -627,7 +627,7 @@ block Portfolio {
                     }
 
                     component CardLanguagesIcons {
-                        image: "https://skillicons.dev/icons?i=kotlin,java,python,postgres,redis,kafka,rabbitmq"
+                        image: "assets/icons-languages.svg"
                         alt: "Kotlin, Java, Python, PostgreSQL, Redis, Kafka and RabbitMQ icons"
                         height: 32
                     }
